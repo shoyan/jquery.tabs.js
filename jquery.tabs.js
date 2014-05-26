@@ -7,20 +7,29 @@
   'use strict';
 
   $.fn.extend({
-    tabs: function() {
-      var target = $(this).find('a');
+    tabs: function(options) {
+      var options = options || {};
 
-      target.on('click', function(e) {
-        e.preventDefault();
-        var $this = $(this),
-        tabID = $(this).data('target');
+      return this.each(function() {
+        var target = $(this).find('a');
 
-        $(tabID).siblings().removeClass('active')
-        $(tabID).addClass('active');
+        $(this).children().addClass("jquery-tabs");
 
-        $this.parent('li').siblings().children().removeClass('active');
-        $this.addClass('active');
-        return true;
+        if(options.active_tab) {
+          $(".jquery-tabs > [data-target='" + options.active_tab + "']").trigger("click");
+        }
+
+        target.on('click', function(e) {
+          e.preventDefault();
+          var $this = $(this),
+          tabID = $this.data('target');
+
+          $(tabID).siblings().removeClass('active')
+          $(tabID).addClass('active');
+
+          $this.parent('li').siblings().children().removeClass('active');
+          $this.addClass('active');
+        });
       });
     }
   });
