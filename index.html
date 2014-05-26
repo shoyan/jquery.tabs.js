@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>jquery.tabs</title>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript" src="jquery.tabs.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                $('.js-tabs').tabs();
+            });
+        </script>
+        <style>
+            /*
+            * JQuery Tabs
+            */
+            .tabs-content {
+                width: 500px;
+            }
+
+            .tabs-pane {
+                display: none;
+                visibility: hidden;
+            }
+
+            .tabs-pane.active {
+                display: block;
+                visibility: visible;
+            }
+
+            .js-tabs {
+                width: 500px;
+                height: 30px;
+                text-align: left;
+                border-bottom: 3px solid #ef7b15;
+            }
+
+            .js-tabs li {
+                display:inline;
+            }
+
+            .js-tabs li a {
+                display:inline-block;
+                width: 60px;
+                height: 20px;
+                line-height: 21px;
+                background:#f8ab15;
+                color:#fff;
+                padding:5px;
+                border-radius:5px 5px 0 0;
+                text-decoration:none;
+                text-align: center;
+            }
+
+            .js-tabs li a:hover {
+                background:#ef7b15;
+                color: #fff;
+            }
+
+            .js-tabs li a.active{
+                background:#ef7b15;
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <ul class="js-tabs">
+            <li><a data-target="#tab1" href="#" class="active">tab1</a></li>
+            <li><a data-target="#tab2" href="#">tab2</a></li>
+        </ul>
+        <div class="tabs-content">
+            <div class="tabs-pane active" id="tab1">
+                <p>tab1</p>
+            </div>
+            <div class="tabs-pane" id="tab2">
+                <p>tab2</p>
+            </div>
+        </div>
+    </body>
+</html>
