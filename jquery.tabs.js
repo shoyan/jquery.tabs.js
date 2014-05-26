@@ -15,10 +15,6 @@
 
         $(this).children().addClass("jquery-tabs");
 
-        if(options.active_tab) {
-          $(".jquery-tabs > [data-target='" + options.active_tab + "']").trigger("click");
-        }
-
         target.on('click', function(e) {
           e.preventDefault();
           var $this = $(this),
@@ -30,6 +26,9 @@
           $this.parent('li').siblings().children().removeClass('active');
           $this.addClass('active');
         });
+        if(options.active_tab) {
+          $(".jquery-tabs > [data-target='" + options.active_tab + "']").trigger("click");
+        }
       });
     }
   });

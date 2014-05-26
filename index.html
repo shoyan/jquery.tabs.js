@@ -7,7 +7,7 @@
         <script type="text/javascript" src="jquery.tabs.js"></script>
         <script type="text/javascript">
             $(function(){
-                $('.js-tabs').tabs();
+                $(".js-tabs").tabs({active_tab: "#tab1"});
             });
         </script>
         <style>
@@ -65,11 +65,11 @@
     </head>
     <body>
         <ul class="js-tabs">
-            <li><a data-target="#tab1" href="#" class="active">tab1</a></li>
+            <li><a data-target="#tab1" href="#">tab1</a></li>
             <li><a data-target="#tab2" href="#">tab2</a></li>
         </ul>
         <div class="tabs-content">
-            <div class="tabs-pane active" id="tab1">
+            <div class="tabs-pane" id="tab1">
                 <p>tab1</p>
             </div>
             <div class="tabs-pane" id="tab2">
