@@ -27,10 +27,17 @@
           $this.addClass('active');
         });
         if(options.active_tab) {
-          $(".jquery-tabs > [data-target='" + options.active_tab + "']").trigger("click");
+          activate_tab(options.active_tab);
         }
       });
+    },
+    activate_tab: function(target) {
+      activate_tab(target);
     }
   });
+
+  function activate_tab(target) {
+    $(".jquery-tabs > [data-target='" + target + "']").trigger("click");
+  }
 })(jQuery);
 
