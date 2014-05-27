@@ -27,16 +27,16 @@
           $this.addClass('active');
         });
         if(options.active_tab) {
-          activate_tab(options.active_tab);
+          activateTab(options.active_tab);
         }
       });
     },
-    activate_tab: function(target) {
-      activate_tab(target);
+    activateTab: function(target) {
+      activateTab(target);
     }
   });
 
-  function activate_tab(target) {
+  function activateTab(target) {
     $(".jquery-tabs > [data-target='" + target + "']").trigger("click");
   }
 })(jQuery);
