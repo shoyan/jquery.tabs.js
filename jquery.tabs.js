@@ -8,7 +8,7 @@
 
   $.fn.extend({
     tabs: function(options) {
-      var options = options || {};
+      options = options || {};
 
       return this.each(function() {
         var target = $(this).find('a');
@@ -20,7 +20,7 @@
           var $this = $(this),
           tabID = $this.data('target');
 
-          $(tabID).siblings().removeClass('active')
+          $(tabID).siblings().removeClass('active');
           $(tabID).addClass('active');
 
           $this.parent('li').siblings().children().removeClass('active');
