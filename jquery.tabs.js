@@ -25,6 +25,11 @@
 
           $this.parent('li').siblings().children().removeClass('active');
           $this.addClass('active');
+
+          // コールバック関数が設定されてあれば実行する
+          if(typeof options.callback === 'function') {
+            options.callback();
+          }
         });
         if(options.active_tab) {
           activateTab(options.active_tab);
