@@ -6,6 +6,17 @@
 ;(function($) {
   'use strict';
 
+  var activate = function() {
+    var $this = $(this),
+    tabID = $this.data('target');
+
+    $(tabID).siblings().removeClass('active');
+    $(tabID).addClass('active');
+
+    $this.parent('li').siblings().children().removeClass('active');
+    $this.addClass('active');
+  };
+
   $.fn.extend({
     tabs: function(options) {
       options = options || {};
@@ -14,6 +25,11 @@
         var target = $(this).find('a');
 
         $(this).children().addClass("jquery-tabs");
+
+        if(options.active_tab) {
+          var $this = $(".jquery-tabs > [data-target='" + options.active_tab + "']");
+          activate.call($this);
+        }
 
         target.on('click', function(e) {
           e.preventDefault();
@@ -28,32 +44,18 @@
             }
           }
 
-          var $this = $(this),
-          tabID = $this.data('target');
-
-          $(tabID).siblings().removeClass('active');
-          $(tabID).addClass('active');
-
-          $this.parent('li').siblings().children().removeClass('active');
-          $this.addClass('active');
+          activate.call(this);
 
           // コールバック関数が設定されてあれば実行する
           if(typeof options.callback === 'function') {
             options.callback();
           }
         });
-        if(options.active_tab) {
-          activateTab(options.active_tab);
-        }
       });
     },
     activateTab: function(target) {
-      activateTab(target);
+      var $this = $(".jquery-tabs > [data-target='" + target + "']");
+      activate.call($this);
     }
   });
-
-  function activateTab(target) {
-    $(".jquery-tabs > [data-target='" + target + "']").trigger("click");
-  }
 })(jQuery);
-
