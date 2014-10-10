@@ -17,6 +17,17 @@
 
         target.on('click', function(e) {
           e.preventDefault();
+
+          /*
+           * コールバック関数が設定されてあれば実行する
+           * trueが返った場合は、タブの切り替えを行わない
+           */
+          if(typeof options.stopSwitching === 'function') {
+            if (options.stopSwitching()) {
+              return false;
+            }
+          }
+
           var $this = $(this),
           tabID = $this.data('target');
 
