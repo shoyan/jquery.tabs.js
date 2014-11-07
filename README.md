@@ -2,6 +2,9 @@ jquery.tabs.js
 ==============
 Lightweight, Provide a tab function with jQuery
 
+## Demo
+### [See Basic Demo](https://shoyan.github.io/jquery.tabs.js/)
+
 ## Usage
 ```
 $(function(){
